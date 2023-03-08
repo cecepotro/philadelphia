@@ -22,6 +22,8 @@
         </property>
         
         <mapping class="mx.itson.philadelphia.entidades.Conductor"/>
+        <mapping class="mx.itson.philadelphia.entidades.Oficial"/>
+        <mapping class="mx.itson.philadelphia.entidades.Multa"/>
     </session-factory>
     
 </hibernate-configuration>

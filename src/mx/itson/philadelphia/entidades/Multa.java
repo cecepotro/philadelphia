@@ -5,17 +5,37 @@
 package mx.itson.philadelphia.entidades;
 
 import java.util.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author jesus
  */
+@Entity
 public class Multa {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private int id;
     private String folio;
     private String motivo;
+    @Temporal(TemporalType.DATE)
     private Date fecha;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="idConductor")
     private Conductor conductor;
+    
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="idOficial")
     private Oficial oficial;
     /**
      * @return the id
